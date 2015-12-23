@@ -611,10 +611,14 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
         btnPause.setEnabled(true);
 
         //Relencer le timer pour les déplacements des animaux 
-        frameChoixPlateau.initControl();
+        frameChoixPlateau.resetControl();
         frameChoixPlateau.setTimer(new Timer());
         debut(frameChoixPlateau.getControl(), frameChoixPlateau.getTimer());
     }//GEN-LAST:event_btnPlayActionPerformed
+
+    public FenetreChoixPlateau getFrameChoixPlateau() {
+        return frameChoixPlateau;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGroup;

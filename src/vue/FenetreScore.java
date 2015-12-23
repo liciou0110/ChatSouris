@@ -164,9 +164,11 @@ public class FenetreScore extends javax.swing.JDialog {
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnRejouerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejouerActionPerformed
-        frameParent.dispose();
-        //TODO
         this.dispose();
+        frameParent.dispose();
+        // On initialise un nouveau jeu avec celui selectionné sur la fenetreChoixPlateau
+        frameParent.getFrameChoixPlateau().nouveauJeu();
+
     }//GEN-LAST:event_btnRejouerActionPerformed
 
     
