@@ -33,11 +33,12 @@ public class FenetreScore extends javax.swing.JDialog {
      * @param modal
      * @param score
      * @param nbSouris
+     * @param nbSourisMortes
      */
-    public FenetreScore(FenetreJeu frameJeu, boolean modal, int score, int nbSouris) {
+    public FenetreScore(FenetreJeu frameJeu, boolean modal, int score, int nbSouris, int nbSourisMortes) {
         frameParent = frameJeu;
         
-        int morte = nbSouris-score;
+        int morte = nbSourisMortes;
         int sauve = score;
 
         initComponents();

@@ -424,7 +424,7 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
             frameChoixPlateau.getTimer().cancel();
             frameChoixPlateau.getTimer().purge();
             labScore.setText(String.valueOf(score));
-            frameScore = new FenetreScore(this, true, score, unPlateau.getNbSouris());
+            frameScore = new FenetreScore(this, true, score, unPlateau.getNbSouris(), unPlateau.getNbSourisMortes());
             frameScore.setVisible(true);
         }
     }

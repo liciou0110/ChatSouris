@@ -27,11 +27,14 @@ public class Plateau implements Serializable, Cloneable {
     /** Le nombre de chats dans le jeu */
     private int nbChats;
     
-    /** Le nombre de souris dans le jeu */
+    /** Le nombre de souris au départ */
     private int nbSouris;
 
     /** Le nombre de souris sur le plateau */
     private int nbSourisPlateau;
+
+    /** Le nombre de souris mortes */
+    private int nbSourisMortes;
 
     /** Le nombre de porte d'entrées dans le jeu */
     private int nbEntrees;
@@ -272,6 +275,14 @@ public class Plateau implements Serializable, Cloneable {
      */
     public int getNbSouris() {
         return nbSouris;
+    }
+
+    /**
+     * Récupère le nombre de souris mortes au cours du jeu
+     * @return le nombre de souris mortes
+     */
+    public int getNbSourisMortes() {
+        return nbSourisMortes;
     }
 
     /**
@@ -670,7 +681,7 @@ public class Plateau implements Serializable, Cloneable {
      */
     public void jouer() {
         // Si le nombre de souris est SUPERIEUR au nombre de souris sur le plateau + le nombre de souris sauvées
-        if(nbSouris > nbSourisPlateau + score) {
+        if(nbSouris > nbSourisPlateau + score + nbSourisMortes) {
             Case entree;
             if(getEntrees().size() > 1) {
                 int random = new Random().nextInt(getEntrees().size());
@@ -734,7 +745,8 @@ public class Plateau implements Serializable, Cloneable {
         // Parcours la liste des animaux qui doivent être supprimés
         for (Animal a : toRemove) {
             if (a instanceof Souris) {
-                nbSouris--; // décremente le nombre de souris qui a sur le plateau
+                nbSourisPlateau--; // décremente le nombre de souris qui a sur le plateau
+                nbSourisMortes++;
             }
             listeAnimaux.remove(a); // Supprime l'animal de la liste des animaux
         }
