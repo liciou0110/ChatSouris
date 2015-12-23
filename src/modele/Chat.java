@@ -7,7 +7,6 @@ package modele;
 
 import java.io.Serializable;
 
-import static modele.CasePossible.*;
 import static modele.OrientationPossible.*;
 
 

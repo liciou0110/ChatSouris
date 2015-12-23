@@ -521,8 +521,8 @@ public class Plateau implements Serializable, Cloneable {
      *  Permet l'afficahge textuelle du plateau d'édition
      */
     public void plateauToString(){
-        for(int i = 0; i < NB_COLONNES; i++){
-            for(int j = 0; j < NB_LIGNES; j++){
+        for(int j = 0; j < NB_LIGNES; j++){
+            for(int i = 0; i < NB_COLONNES; i++){
                     for(int k= 0; k < lesCases[i][j].getAnimaux().size(); k++){
                         if(lesCases[i][j].getAnimaux().get(k) != null){
                             System.out.print(lesCases[i][j].getTypeCase()+ "/" +
@@ -530,7 +530,7 @@ public class Plateau implements Serializable, Cloneable {
                             lesCases[i][j].getAnimaux().get(k).getOrientation() + "    ");
                         }
                     }
-                    System.out.print(lesCases[i][j].getTypeCase() + " \t");
+                    System.out.print(lesCases[i][j].getTypeCase() + " \t\t");
             }
             System.out.println("");
         }
@@ -711,7 +711,6 @@ public class Plateau implements Serializable, Cloneable {
         }
         return res;
     }
-
 
     /**
      * Vérifie l'existance d'une souris et d'un chat sur la même position

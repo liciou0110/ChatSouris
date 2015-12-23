@@ -6,6 +6,7 @@
 package vue;
 
 import controleur.ControleurFleche;
+import controleur.ControleurJouer;
 import controleur.Observateur;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -413,12 +414,12 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
  
         //Affichage du score
         score = unPlateau.getScore();
-        
+
         //Cas ou il ya encore des souris sur le plateau
         if(unPlateau.getNbSourisPlateau() != 0){
             labScore.setText(String.valueOf(score));
         //Cas ou il n'y a plus de souris sur le plateau
-        }else{
+        }else if(unPlateau.getNbSourisPlateau() == 0 && ControleurJouer.getTmp() > 1){
             //Arrêt du timer à l'affichage
             frameChoixPlateau.getControl().cancel();
             frameChoixPlateau.getTimer().cancel();

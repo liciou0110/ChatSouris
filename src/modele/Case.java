@@ -131,7 +131,7 @@ public class Case implements Serializable {
     public boolean isWalkable() {
         return typeCase == CasePossible.VIDE || typeCase == CasePossible.SORTIE || typeCase == CasePossible.FLECHE_BAS
                 || typeCase == CasePossible.FLECHE_DROITE || typeCase == CasePossible.FLECHE_GAUCHE
-                || typeCase == CasePossible.FLECHE_HAUT;
+                || typeCase == CasePossible.FLECHE_HAUT || typeCase == CasePossible.TELEPORTEUR;
     }
 
     /**

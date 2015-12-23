@@ -6,9 +6,13 @@
 package modele;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Random;
 
 import static modele.CasePossible.*;
 import static modele.OrientationPossible.*;
+import static modele.Plateau.NB_COLONNES;
+import static modele.Plateau.NB_LIGNES;
 
 /**
  * Caractérise un animal dans le jeu labyrinthe "Chats & Souris"
@@ -127,20 +131,36 @@ public abstract class Animal implements Serializable, Cloneable {
     }
 
     /**
-     * Permet à un animal de se déplacer instantanément sur un autre téléporteur
-     *
-     * @param teleporteurSortie le téléporteur sur lequel on sort,
-     *                          il correspond à la nouvelle position de l'animal
-     */
-    public void teleportation(Case teleporteurSortie) {
-        // TODO
-    }
-
-    /**
      * Permet à un animal de se déplacer dans une direction de case en case
      */
     public void deplacer(Case[][] lesCases) {
         lesCases[positionX][positionY].removeAnimal(this);
+
+        //Cas on tombe sur une case avec un téléporteur
+        if (lesCases[positionX][positionY].getTypeCase() == CasePossible.TELEPORTEUR) {
+
+            ArrayList<Case> teleporteurs = new ArrayList<>();
+            for(int i = 0; i < NB_COLONNES; i++) {
+                for (int j = 0; j < NB_LIGNES; j++) {
+                    //Récupèration des téléporteurs dans une liste sans le téléporteur d'entrée
+                    if(lesCases[i][j].getTypeCase() == TELEPORTEUR &&
+                       !(lesCases[i][j].equals(lesCases[positionX][positionY]))){
+                        teleporteurs.add(lesCases[i][j]);
+                    }
+                }
+            }
+            
+            Case teleport;
+            
+            //Si il ya plus de 1 téléporteur placé sur le plateau 
+            //sinon on fait rien
+            if(teleporteurs.size() >= 1){
+                int random = new Random().nextInt(teleporteurs.size());
+                teleport = teleporteurs.get(random);
+                
+                lesCases[teleport.getCoordonneeX()][teleport.getCoordonneeY()].addAnimal(this);
+            }
+        }
     }
 
     public Animal clone() {

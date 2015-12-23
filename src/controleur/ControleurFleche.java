@@ -44,7 +44,6 @@ public class ControleurFleche extends MouseAdapter{
     @Override
     public void mouseClicked(MouseEvent e){
         model.placerFleche(cordX, cordY, vue.getChoix(cordX, cordY));
-        model.plateauToString();
     }
     
 }
