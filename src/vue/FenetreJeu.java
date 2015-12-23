@@ -413,12 +413,12 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
  
         //Affichage du score
         score = unPlateau.getScore();
-        
+
         //Cas ou il ya encore des souris sur le plateau
         if(unPlateau.getNbSourisPlateau() != 0){
             labScore.setText(String.valueOf(score));
         //Cas ou il n'y a plus de souris sur le plateau
-        }else{
+        }else {
             //Arrêt du timer à l'affichage
             frameChoixPlateau.getControl().cancel();
             frameChoixPlateau.getTimer().cancel();

@@ -733,9 +733,11 @@ public class Plateau implements Serializable, Cloneable {
         for (Animal a1 : listeAnimaux) {
             for (Animal a2 : listeAnimaux) {
                 if (a1.positionX == a2.positionX && a1.positionY == a2.positionY) {
-                    if (a1 instanceof Chat && a2 instanceof Souris) {
+                    // Comme nous parcourons deux fois la même liste il faut vérifier que nous n'avons
+                    // pas déjà ajouté la souris à la liste toRemove
+                    if (a1 instanceof Chat && a2 instanceof Souris && !toRemove.contains(a2)) {
                         toRemove.add(a2); // Place la souris dans la liste des animaux a supprimer
-                    } else if (a1 instanceof Souris && a2 instanceof Chat) {
+                    } else if (a1 instanceof Souris && a2 instanceof Chat && !toRemove.contains(a1)) {
                         toRemove.add(a1); // Place la souris dans la liste des animaux a supprimer
                     }
                 }
