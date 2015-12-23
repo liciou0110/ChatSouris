@@ -4,14 +4,10 @@
  */
 package vue;
 
-import controleur.ControleurJouer;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.Timer;
-import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import modele.Plateau;
 
 /**
  * Classe correspondant à la vue pour l'affichage du score
@@ -29,10 +25,10 @@ public class FenetreScore extends javax.swing.JDialog {
 
     /**
      * Constructeur par défaut
-     * @param frameJeu
-     * @param modal
-     * @param score
-     * @param nbSouris
+     * @param frameJeu la fenetre du jeu de la partie en cours
+     * @param modal pour savoir si la fenetre est modale ou pas
+     * @param score le score de la partie en cours
+     * @param nbSouris le nombre de souris au départ
      */
     public FenetreScore(FenetreJeu frameJeu, boolean modal, int score, int nbSouris) {
         frameParent = frameJeu;
