@@ -135,7 +135,7 @@ public abstract class Animal implements Serializable, Cloneable {
      */
     public void deplacer(Case[][] lesCases) {
         lesCases[positionX][positionY].removeAnimal(this);
-
+        
         //Cas on tombe sur une case avec un téléporteur
         if (lesCases[positionX][positionY].getTypeCase() == CasePossible.TELEPORTEUR) {
 

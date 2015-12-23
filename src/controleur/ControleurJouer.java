@@ -19,7 +19,7 @@ public class ControleurJouer extends TimerTask{
     /** Correspond à la vue */
     private final FenetreJeu vue;
     
-    /** In incrémenté chaque seconde utile pour l'affichage du score*/
+    /** Int incrémenté chaque seconde pour la gestion del'affichage des scores */
     private static int tmp = 0;
 
     /**
@@ -35,8 +35,9 @@ public class ControleurJouer extends TimerTask{
     @Override
     public void run() {
         model.jouer();
-        model.plateauToString();
         tmp++;
+        model.plateauToString();
+        System.out.println("");
     }   
 
     /**

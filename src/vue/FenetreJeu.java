@@ -419,13 +419,14 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
         if(unPlateau.getNbSourisPlateau() != 0){
             labScore.setText(String.valueOf(score));
         //Cas ou il n'y a plus de souris sur le plateau
-        }else if(unPlateau.getNbSourisPlateau() == 0 && ControleurJouer.getTmp() > 1){
+        }else if(unPlateau.getNbSourisPlateau() == 0 && 
+                 ControleurJouer.getTmp() > 1) {
             //Arrêt du timer à l'affichage
             frameChoixPlateau.getControl().cancel();
             frameChoixPlateau.getTimer().cancel();
             frameChoixPlateau.getTimer().purge();
             labScore.setText(String.valueOf(score));
-            frameScore = new FenetreScore(this, true, score, unPlateau.getNbSouris());
+            frameScore = new FenetreScore(this, true, score, unPlateau.getNbSouris(), unPlateau.getNbSourisMortes());
             frameScore.setVisible(true);
         }
     }
@@ -612,10 +613,14 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
         btnPause.setEnabled(true);
 
         //Relencer le timer pour les déplacements des animaux 
-        frameChoixPlateau.initControl();
+        frameChoixPlateau.resetControl();
         frameChoixPlateau.setTimer(new Timer());
         debut(frameChoixPlateau.getControl(), frameChoixPlateau.getTimer());
     }//GEN-LAST:event_btnPlayActionPerformed
+
+    public FenetreChoixPlateau getFrameChoixPlateau() {
+        return frameChoixPlateau;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGroup;
