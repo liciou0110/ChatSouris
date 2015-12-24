@@ -27,7 +27,6 @@ public class Chat extends Animal implements Serializable {
         super(x, y, "Chat", sens);
     }
 
-
     /**
      * Permet de déplacer un chat en ligne ou en colonne
      */
@@ -36,7 +35,7 @@ public class Chat extends Animal implements Serializable {
         super.deplacer(lesCases);
         switch(orientation) {
             case HAUT:
-                if (positionY > 0 && lesCases[positionX][positionY-1].isWalkable()) {
+                if (positionY > 0 && lesCases[positionX][positionY-1].isWalkableCat()) {
                     positionY--;
                     lesCases[positionX][positionY].addAnimal(this);
                 } else {
@@ -45,7 +44,7 @@ public class Chat extends Animal implements Serializable {
                 }
                 break;
             case BAS:
-                if (positionY < Plateau.NB_LIGNES - 1 && lesCases[positionX][positionY+1].isWalkable())  {
+                if (positionY < Plateau.NB_LIGNES - 1 && lesCases[positionX][positionY+1].isWalkableCat())  {
                     positionY++;
                     lesCases[positionX][positionY].addAnimal(this);
                 } else {
@@ -54,7 +53,7 @@ public class Chat extends Animal implements Serializable {
                 }
                 break;
             case GAUCHE:
-                if (positionX > 0 && lesCases[positionX-1][positionY].isWalkable()) {
+                if (positionX > 0 && lesCases[positionX-1][positionY].isWalkableCat()) {
                     positionX--;
                     lesCases[positionX][positionY].addAnimal(this);
                 } else {
@@ -63,7 +62,7 @@ public class Chat extends Animal implements Serializable {
                 }
                 break;
             case DROITE:
-                if (positionX < Plateau.NB_COLONNES - 1 && lesCases[positionX+1][positionY].isWalkable())  {
+                if (positionX < Plateau.NB_COLONNES - 1 && lesCases[positionX+1][positionY].isWalkableCat())  {
                     positionX++;
                     lesCases[positionX][positionY].addAnimal(this);
                 } else {

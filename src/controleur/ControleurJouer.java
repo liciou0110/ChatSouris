@@ -28,6 +28,7 @@ public class ControleurJouer extends TimerTask{
      * @param v correpsond à la vue
      */
     public ControleurJouer(Plateau m, FenetreJeu v){
+        tmp = 0;
         model  = m;
         vue = v;
     }
@@ -36,8 +37,6 @@ public class ControleurJouer extends TimerTask{
     public void run() {
         model.jouer();
         tmp++;
-        model.plateauToString();
-        System.out.println("");
     }   
 
     /**

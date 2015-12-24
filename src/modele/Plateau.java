@@ -536,12 +536,10 @@ public class Plateau implements Serializable, Cloneable {
             for(int i = 0; i < NB_COLONNES; i++){
                     for(int k= 0; k < lesCases[i][j].getAnimaux().size(); k++){
                         if(lesCases[i][j].getAnimaux().get(k) != null){
-                            System.out.print(lesCases[i][j].getTypeCase()+ "/" +
-                            lesCases[i][j].getAnimaux().get(k).getNom() + " " +
-                            lesCases[i][j].getAnimaux().get(k).getOrientation() + "    ");
+                            System.out.print(lesCases[i][j].getAnimaux().get(k).getNom() + "/");
                         }
                     }
-                    System.out.print(lesCases[i][j].getTypeCase() + " \t\t");
+                    System.out.print(lesCases[i][j].getTypeCase() + "  \t");
             }
             System.out.println("");
         }
@@ -798,7 +796,6 @@ public class Plateau implements Serializable, Cloneable {
                 currentCase.setTypeCase(fleche);
 
                 decrementeFleche(fleche);
-                System.out.println("test");
             //Cas ou il n'y a pas d'animaux et que la case courante est une fleche haute
             } else if (currentCase.getAnimaux().isEmpty() && currentCase.getTypeCase() == FLECHE_HAUT) {
                 modifValeurFleche(currentCase.getTypeCase(), fleche);

@@ -49,13 +49,10 @@ public class ControleurCase extends MouseAdapter{
 
     @Override
     public void mouseClicked(MouseEvent e){
-        System.out.println(cordX + " - " + cordY);
         // Avertissement afin d'update isChatPresent();
         model.avertirObs(cordX, cordX);
         vue.setIconCase(cordX, cordY);
         model.editer(cordX, cordY, vue.getChoix(cordX, cordY), 
                      vue2.getOrientation(), vue.isChatPresent());
-        model.plateauToString();
-        System.out.println("");
     } 
 }

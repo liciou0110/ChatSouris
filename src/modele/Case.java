@@ -124,16 +124,27 @@ public class Case implements Serializable {
     }
 
     /**
-     * Définit si une case peut être franchi par un animal
+     * Définit si une case peut être franchi par une Souris
      * @return true si la case peut être franchie
      *          false sinon
      */
-    public boolean isWalkable() {
+    public boolean isWalkableSouris() {
         return typeCase == CasePossible.VIDE || typeCase == CasePossible.SORTIE || typeCase == CasePossible.FLECHE_BAS
                 || typeCase == CasePossible.FLECHE_DROITE || typeCase == CasePossible.FLECHE_GAUCHE
                 || typeCase == CasePossible.FLECHE_HAUT || typeCase == CasePossible.TELEPORTEUR;
     }
 
+    /**
+     * Définit si une case peut être franchi par un Chat
+     * @return true si la case peut être franchie
+     *          false sinon
+     */
+    public boolean isWalkableCat() {
+        return typeCase == CasePossible.VIDE || typeCase == CasePossible.FLECHE_BAS
+                || typeCase == CasePossible.FLECHE_DROITE || typeCase == CasePossible.FLECHE_GAUCHE
+                || typeCase == CasePossible.FLECHE_HAUT || typeCase == CasePossible.TELEPORTEUR;
+    }
+    
     /**
      * Clone une case
      * @return la case cloné

@@ -76,6 +76,9 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
 
     /** Score de la partie */
     int score = 0;
+    
+    /** Nombre de téléporteur du plateau */
+    int nbTeleporteurPlateau = 0;
 
     /**
      * Constructeur par défaut
@@ -143,9 +146,21 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
         if (unPlateau.getNbTeleporteurs() == 0) {
             teleporteur.setEnabled(false);
         }
-
-        //Selectionne un radio bouton par défaut
-        selectionneBtn();
+        
+        //Selectionne un bouton par défaut*/
+        if (unPlateau.getNbFlechesHaut() != 0) {
+            up.setSelected(true);
+        }else if (unPlateau.getNbFlechesBas() != 0) {
+            down.setSelected(true);
+        }else if (unPlateau.getNbFlechesDroite() != 0) {
+            right.setSelected(true);
+        }else if (unPlateau.getNbFlechesGauche() != 0) {
+            left.setSelected(true);
+        }else if (unPlateau.getNbTeleporteurs() != 0) {
+            teleporteur.setSelected(true);
+        }else{
+            caseVide.setSelected(true);
+        }
 
         //Ajoute les bouton au groupe de bouton
         btnGroup.add(up);
@@ -251,32 +266,12 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
         timer.scheduleAtFixedRate(control, 1000, 1000);
     }
     
-    /**
-     * Permet de selectionner un bouton par défaut et changer la selction 
-     * si il ya plus de flêche pour le premier bouton par exemple
-     */
-    public void selectionneBtn(){
-        if(unPlateau.getNbFlechesHaut() != 0){
-            up.setSelected(true);
-        }else if(unPlateau.getNbFlechesDroite() != 0){
-            right.setSelected(true);
-        }else if(unPlateau.getNbFlechesBas() != 0){
-            down.setSelected(true);
-        }else if(unPlateau.getNbFlechesGauche() != 0){
-            left.setSelected(true);
-        }else if(unPlateau.getNbTeleporteurs() != 0){
-            teleporteur.setSelected(true);
-        }else{
-            caseVide.setSelected(true);
-        }
-    }
-
-    
     @Override
     public void avertir(int x, int y) {
         //Gestion des cas d'erreurs
         //Si la case est vide on peut placer la fleche sinon erreur et 
         //on peut décrémenter la fleche
+        
         if(x != -1 && y != -1){   
             
             //Désactive les bouton si le nombre de fleche 
@@ -309,6 +304,14 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
                 up.setEnabled(true);
             }
             
+            if(teleporteur.isSelected() && nbTeleporteurPlateau == 0){
+                JOptionPane.showMessageDialog(this, 
+                    "Pour que vos animaux puisse se téléporter "
+                  + "il faut au minimum deux téléporteur.", 
+                    "Jeu du Chat et de la Souris - Erreurs",
+                JOptionPane.INFORMATION_MESSAGE);
+            }
+            
             //on verifie si la case ou on place l'élément est vide
             if(jboard[x][y].getIcon() == VIDE){
                 if(up.isSelected()){
@@ -323,8 +326,6 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
                     nbTele.setText("x " + unPlateau.getNbTeleporteurs());
                 }
                 
-                //Selectionne un nouveau bouton une fois une flêche placé
-                selectionneBtn();
             }else if(jboard[x][y].getIcon() == HAUT || 
                      jboard[x][y].getIcon() == BAS ||
                      jboard[x][y].getIcon() == DROITE ||
@@ -336,9 +337,6 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
                 nbRight.setText("x " + unPlateau.getNbFlechesDroite());
                 nbUp.setText("x " + unPlateau.getNbFlechesHaut());
                 nbDown.setText("x " + unPlateau.getNbFlechesBas());
-                
-                //Selectionne un nouveau bouton une fois une flêche placé
-                selectionneBtn();
             }else{
                 //Si on place une case vide sur un case autre q'une case 
                 //fleche teleporteur ou vide et sans animaux
@@ -367,7 +365,7 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
                 }
             }
         }
-
+        
         // Redessine le plateau
         for (int i = 0; i < Plateau.NB_COLONNES; i++) {
             for (int j = 0; j < Plateau.NB_LIGNES; j++) {
@@ -393,6 +391,7 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
                         break;
                     case TELEPORTEUR:
                         jboard[i][j].setIcon(TELPORTEUR);
+                        nbTeleporteurPlateau++;
                         break;
                     case MUR:
                         jboard[i][j].setIcon(MUR);
@@ -420,7 +419,7 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
             labScore.setText(String.valueOf(score));
         //Cas ou il n'y a plus de souris sur le plateau
         }else if(unPlateau.getNbSourisPlateau() == 0 && 
-                 ControleurJouer.getTmp() > 1) {
+                 ControleurJouer.getTmp() > 2) {
             //Arrêt du timer à l'affichage
             frameChoixPlateau.getControl().cancel();
             frameChoixPlateau.getTimer().cancel();

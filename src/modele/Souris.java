@@ -45,7 +45,7 @@ public class Souris extends Animal implements Serializable {
         }
         switch(orientation) {
             case HAUT:
-                if (positionY > 0  && lesCases[positionX][positionY-1].isWalkable()) {
+                if (positionY > 0  && lesCases[positionX][positionY-1].isWalkableSouris()) {
                     positionY--;
                     lesCases[positionX][positionY].addAnimal(this);
                 } else {
@@ -54,7 +54,7 @@ public class Souris extends Animal implements Serializable {
                 }
                 break;
             case BAS:
-                if (positionY < Plateau.NB_LIGNES - 1 && lesCases[positionX][positionY+1].isWalkable()) {
+                if (positionY < Plateau.NB_LIGNES - 1 && lesCases[positionX][positionY+1].isWalkableSouris()) {
                     positionY++;
                     lesCases[positionX][positionY].addAnimal(this);
                 } else {
@@ -63,7 +63,7 @@ public class Souris extends Animal implements Serializable {
                 }
                 break;
             case GAUCHE:
-                if (positionX > 0 && lesCases[positionX-1][positionY].isWalkable()) {
+                if (positionX > 0 && lesCases[positionX-1][positionY].isWalkableSouris()) {
                     positionX--;
                     lesCases[positionX][positionY].addAnimal(this);
                 } else {
@@ -72,7 +72,7 @@ public class Souris extends Animal implements Serializable {
                 }
                 break;
             case DROITE:
-                if (positionX < Plateau.NB_COLONNES - 1 && lesCases[positionX+1][positionY].isWalkable()) {
+                if (positionX < Plateau.NB_COLONNES - 1 && lesCases[positionX+1][positionY].isWalkableSouris()) {
                     positionX++;
                     lesCases[positionX][positionY].addAnimal(this);
                 } else {

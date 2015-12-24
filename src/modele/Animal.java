@@ -129,7 +129,7 @@ public abstract class Animal implements Serializable, Cloneable {
     public void setOrientation(OrientationPossible orientation) {
         this.orientation = orientation;
     }
-
+    
     /**
      * Permet à un animal de se déplacer dans une direction de case en case
      */
@@ -138,27 +138,27 @@ public abstract class Animal implements Serializable, Cloneable {
         
         //Cas on tombe sur une case avec un téléporteur
         if (lesCases[positionX][positionY].getTypeCase() == CasePossible.TELEPORTEUR) {
-
             ArrayList<Case> teleporteurs = new ArrayList<>();
             for(int i = 0; i < NB_COLONNES; i++) {
                 for (int j = 0; j < NB_LIGNES; j++) {
                     //Récupèration des téléporteurs dans une liste sans le téléporteur d'entrée
                     if(lesCases[i][j].getTypeCase() == TELEPORTEUR &&
-                       !(lesCases[i][j].equals(lesCases[positionX][positionY]))){
+                     !(lesCases[i][j].equals(lesCases[positionX][positionY]))){
                         teleporteurs.add(lesCases[i][j]);
                     }
                 }
             }
-            
-            Case teleport;
-            
+ 
             //Si il ya plus de 1 téléporteur placé sur le plateau 
             //sinon on fait rien
             if(teleporteurs.size() >= 1){
+                Case teleport;
                 int random = new Random().nextInt(teleporteurs.size());
                 teleport = teleporteurs.get(random);
-                
-                lesCases[teleport.getCoordonneeX()][teleport.getCoordonneeY()].addAnimal(this);
+                lesCases[positionX][positionY].removeAnimal(this);
+                positionX = teleport.getCoordonneeX();
+                positionY = teleport.getCoordonneeY();
+                lesCases[positionX][positionY].addAnimal(this);
             }
         }
     }
