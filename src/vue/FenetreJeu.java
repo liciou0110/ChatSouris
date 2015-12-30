@@ -263,7 +263,7 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
      */
     public void debut(TimerTask control, Timer timer) {
         // On définit le temps de répétition (2000)
-        timer.scheduleAtFixedRate(control, 1000, 1000);
+        timer.scheduleAtFixedRate(control, 2000, 2000);
     }
     
     @Override
