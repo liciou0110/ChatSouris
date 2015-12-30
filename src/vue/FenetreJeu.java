@@ -305,9 +305,9 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
             }
             
             if(teleporteur.isSelected() && nbTeleporteurPlateau == 0){
-                JOptionPane.showMessageDialog(this, 
-                    "Pour que vos animaux puisse se téléporter "
-                  + "il faut au minimum deux téléporteur.", 
+                JOptionPane.showMessageDialog(this,
+                    "Pour que vos animaux puissent se téléporter "
+                  + "il faut au minimum deux téléporteurs.",
                     "Jeu du Chat et de la Souris - Erreurs",
                 JOptionPane.INFORMATION_MESSAGE);
             }
@@ -338,11 +338,11 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
                 nbUp.setText("x " + unPlateau.getNbFlechesHaut());
                 nbDown.setText("x " + unPlateau.getNbFlechesBas());
             }else{
-                //Si on place une case vide sur un case autre q'une case 
+                //Si on place une case vide sur un case autre qu'une case
                 //fleche teleporteur ou vide et sans animaux
                 if(caseVide.isSelected()){
                     JOptionPane.showMessageDialog(this, 
-                        "Une case vide ne peut pas être placée que sur une "
+                        "Une case vide ne peut être placée que sur une "
                       + "flêche, un téléporteur ou une autre case vide.", 
                         "Jeu du Chat et de la Souris - Erreurs",
                     JOptionPane.ERROR_MESSAGE);
@@ -358,8 +358,8 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
                 //autre qu'une case vide et sans animaux
                 }else{
                     JOptionPane.showMessageDialog(this, 
-                        "Une flêhce ne peut être placée que sur une case "
-                      + "vide, un tléporteur ou une autre flêche.", 
+                        "Une flêche ne peut être placée que sur une case "
+                      + "vide, un téléporteur ou une autre flêche.",
                         "Jeu du Chat et de la Souris - Erreurs",
                     JOptionPane.ERROR_MESSAGE);
                 }

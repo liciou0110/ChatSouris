@@ -207,7 +207,7 @@ public class FenetreChoixPlateau extends javax.swing.JFrame {
         Plateau p = Start.getPlateauByNom((String) comboPlateau.getSelectedItem());
         if (((String) comboPlateau.getSelectedItem()).equalsIgnoreCase("Niveau par défaut")) {
             JOptionPane.showMessageDialog(this,
-                    "impossible de supprimer le niveau par défaut.",
+                    "Impossible de supprimer le niveau par défaut.",
                     "Jeu du Chat et de la Souris - Erreurs",
                     JOptionPane.ERROR_MESSAGE);
         } else {

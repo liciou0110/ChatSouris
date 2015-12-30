@@ -345,7 +345,7 @@ public class FenetreEditer extends javax.swing.JFrame implements Observateur{
                 jboard[x][y].setIcon(OUT);
             }else{
                 JOptionPane.showMessageDialog(this, 
-                        "Vous ne pouvez pas place plus de deux sorties.", 
+                        "Vous ne pouvez pas placer plus de deux sorties.",
                         "Jeu du Chat et de la Souris - Erreurs",
                 JOptionPane.ERROR_MESSAGE);
             }
@@ -363,7 +363,7 @@ public class FenetreEditer extends javax.swing.JFrame implements Observateur{
                     }
                 }else{
                     JOptionPane.showMessageDialog(this, 
-                            "Il n'y a pas assez de case vide pour "
+                            "Il n'y a pas assez de cases vides pour "
                           + "positionner un nouveau chat.", 
                             "Jeu du Chat et de la Souris - Erreurs",
                     JOptionPane.ERROR_MESSAGE);
