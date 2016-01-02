@@ -303,15 +303,7 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
             }else{
                 up.setEnabled(true);
             }
-            
-            if(teleporteur.isSelected() && nbTeleporteurPlateau == 0){
-                JOptionPane.showMessageDialog(this,
-                    "Pour que vos animaux puissent se téléporter "
-                  + "il faut au minimum deux téléporteurs.",
-                    "Jeu du Chat et de la Souris - Erreurs",
-                JOptionPane.INFORMATION_MESSAGE);
-            }
-            
+              
             //on verifie si la case ou on place l'élément est vide
             if(jboard[x][y].getIcon() == VIDE){
                 if(up.isSelected()){
@@ -323,6 +315,13 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
                 } else if (left.isSelected()) {
                     nbLeft.setText("x " + unPlateau.getNbFlechesGauche());
                 } else if (teleporteur.isSelected()) {
+                    if(nbTeleporteurPlateau == 0){
+                        JOptionPane.showMessageDialog(this,
+                            "Pour que vos animaux puissent se téléporter "
+                          + "il faut au minimum deux téléporteurs.",
+                            "Jeu du Chat et de la Souris - Erreurs",
+                        JOptionPane.INFORMATION_MESSAGE);
+                    }
                     nbTele.setText("x " + unPlateau.getNbTeleporteurs());
                 }
                 
