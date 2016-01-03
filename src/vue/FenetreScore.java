@@ -16,9 +16,9 @@ import javax.swing.JLabel;
 public class FenetreScore extends javax.swing.JDialog {
 
     /** Image contenant les émoticonnes pour l'affichage des scores */
-    private static final ImageIcon SMILE = new ImageIcon("./src/imgs/smile.png");
-    private static final ImageIcon NEUTRE = new ImageIcon("./src/imgs/neutre.png");
-    private static final ImageIcon SAD = new ImageIcon("./src/imgs/sad.png");
+    private final ImageIcon SMILE = new ImageIcon(getClass().getResource("/imgs/smile.png"));
+    private final ImageIcon NEUTRE = new ImageIcon(getClass().getResource("/imgs/neutre.png"));
+    private final ImageIcon SAD = new ImageIcon(getClass().getResource("/imgs/sad.png"));
           
     /** Fentre Correspondant au Jeu */
     private FenetreJeu frameParent;

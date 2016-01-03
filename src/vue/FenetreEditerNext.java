@@ -27,15 +27,15 @@ public class FenetreEditerNext extends javax.swing.JFrame {
     private Plateau unPlateau;
     
     /** Définit tous les éléments présent sur le plateau */
-    private static final ImageIcon VIDE = new ImageIcon("./src/imgs/vide.png");
-    private static final ImageIcon IN = new ImageIcon("./src/imgs/in.png");
-    private static final ImageIcon OUT = new ImageIcon("./src/imgs/out.png");
-    private static final ImageIcon CHAT = new ImageIcon("./src/imgs/chat.png");
-    private static final ImageIcon SOURIS = new ImageIcon("./src/imgs/souris.png");
-    private static final ImageIcon TELPORTEUR = new ImageIcon("./src/imgs/teleporteur.png");
-    private static final ImageIcon MUR = new ImageIcon("./src/imgs/mur.png");
-    private static final ImageIcon ICON = new ImageIcon("./src/imgs/icon.png");
-    private static final ImageIcon ICONHOVER = new ImageIcon("./src/imgs/iconHover.png");
+    private final ImageIcon VIDE = new ImageIcon(getClass().getResource("/imgs/vide.png"));
+    private final ImageIcon IN = new ImageIcon(getClass().getResource("/imgs/in.png"));
+    private final ImageIcon OUT = new ImageIcon(getClass().getResource("/imgs/out.png"));
+    private final ImageIcon CHAT = new ImageIcon(getClass().getResource("/imgs/chat.png"));
+    private final ImageIcon SOURIS = new ImageIcon(getClass().getResource("/imgs/souris.png"));
+    private final ImageIcon TELPORTEUR = new ImageIcon(getClass().getResource("/imgs/teleporteur.png"));
+    private final ImageIcon MUR = new ImageIcon(getClass().getResource("/imgs/mur.png"));
+    private final ImageIcon ICON = new ImageIcon(getClass().getResource("/imgs/icon.png"));
+    private final ImageIcon ICONHOVER = new ImageIcon(getClass().getResource("/imgs/iconHover.png"));
     
     /** Définition du plateau de jeu */
     JLabel[][] jboard;
@@ -74,12 +74,12 @@ public class FenetreEditerNext extends javax.swing.JFrame {
         }
  
         //Création des bouton radio avec les flêche les souris et les téléporteur
-        ImageIcon up = new ImageIcon("./src/imgs/up_detoure.png");
-        ImageIcon down = new ImageIcon("./src/imgs/down_detoure.png");
-        ImageIcon left = new ImageIcon("./src/imgs/left_detoure.png");
-        ImageIcon right = new ImageIcon("./src/imgs/right_detoure.png");
-        ImageIcon souris = new ImageIcon("./src/imgs/souris_detoure.png");
-        ImageIcon teleporteur = new ImageIcon("./src/imgs/teleporteur_detoure.png");
+        ImageIcon up = new ImageIcon(getClass().getResource("/imgs/up_detoure.png"));
+        ImageIcon down = new ImageIcon(getClass().getResource("/imgs/down_detoure.png"));
+        ImageIcon left = new ImageIcon(getClass().getResource("/imgs/left_detoure.png"));
+        ImageIcon right = new ImageIcon(getClass().getResource("/imgs/right_detoure.png"));
+        ImageIcon souris = new ImageIcon(getClass().getResource("/imgs/souris_detoure.png"));
+        ImageIcon teleporteur = new ImageIcon(getClass().getResource("/imgs/teleporteur_detoure.png"));
             
         //Affiche les images pour les bouton radio
         iconUp.setIcon(up);

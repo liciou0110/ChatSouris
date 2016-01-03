@@ -36,27 +36,27 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
     private final Plateau unPlateau;
 
     /** Définit tous les éléments présent sur le plateau */
-    private static final ImageIcon VIDE = new ImageIcon("./src/imgs/vide.png");
-    private static final ImageIcon IN = new ImageIcon("./src/imgs/in.png");
-    private static final ImageIcon OUT = new ImageIcon("./src/imgs/out.png");
-    private static final ImageIcon CHAT = new ImageIcon("./src/imgs/chat.png");
-    private static final ImageIcon SOURIS = new ImageIcon("./src/imgs/souris.png");
-    private static final ImageIcon TELPORTEUR = new ImageIcon("./src/imgs/teleporteur.png");
-    private static final ImageIcon MUR = new ImageIcon("./src/imgs/mur.png");
-    private static final ImageIcon ICON = new ImageIcon("./src/imgs/icon.png");
-    private static final ImageIcon ICONHOVER = new ImageIcon("./src/imgs/iconHover.png");
-    private static final ImageIcon HAUT = new ImageIcon("./src/imgs/up.png");
-    private static final ImageIcon BAS = new ImageIcon("./src/imgs/down.png");
-    private static final ImageIcon GAUCHE = new ImageIcon("./src/imgs/left.png");
-    private static final ImageIcon DROITE = new ImageIcon("./src/imgs/right.png");
+    private final ImageIcon VIDE = new ImageIcon(getClass().getResource("/imgs/vide.png"));
+    private final ImageIcon IN = new ImageIcon(getClass().getResource("/imgs/in.png"));
+    private final ImageIcon OUT = new ImageIcon(getClass().getResource("/imgs/out.png"));
+    private final ImageIcon CHAT = new ImageIcon(getClass().getResource("/imgs/chat.png"));
+    private final ImageIcon SOURIS = new ImageIcon(getClass().getResource("/imgs/souris.png"));
+    private final ImageIcon TELPORTEUR = new ImageIcon(getClass().getResource("/imgs/teleporteur.png"));
+    private final ImageIcon MUR = new ImageIcon(getClass().getResource("/imgs/mur.png"));
+    private final ImageIcon ICON = new ImageIcon(getClass().getResource("/imgs/icon.png"));
+    private final ImageIcon ICONHOVER = new ImageIcon(getClass().getResource("/imgs/iconHover.png"));
+    private final ImageIcon HAUT = new ImageIcon(getClass().getResource("/imgs/up.png"));
+    private final ImageIcon BAS = new ImageIcon(getClass().getResource("/imgs/down.png"));
+    private final ImageIcon GAUCHE = new ImageIcon(getClass().getResource("/imgs/left.png"));
+    private final ImageIcon DROITE = new ImageIcon(getClass().getResource("/imgs/right.png"));
 
     /** Défintiion  des bouton pour les flêches et les téléporteurs */
-    private final ImageRadioButton up = new ImageRadioButton("../imgs/up_detoure.png", 40);
-    private final ImageRadioButton right = new ImageRadioButton("../imgs/right_detoure.png", 40);
-    private final ImageRadioButton down = new ImageRadioButton("../imgs/down_detoure.png", 40);
-    private final ImageRadioButton left = new ImageRadioButton("../imgs/left_detoure.png", 40);
-    private final ImageRadioButton teleporteur = new ImageRadioButton("../imgs/teleporteur_detoure.png", 40);
-    private final ImageRadioButton caseVide = new ImageRadioButton("../imgs/vide_detoure.png", 43);
+    private final ImageRadioButton up = new ImageRadioButton("/imgs/up_detoure.png", 40);
+    private final ImageRadioButton right = new ImageRadioButton("/imgs/right_detoure.png", 40);
+    private final ImageRadioButton down = new ImageRadioButton("/imgs/down_detoure.png", 40);
+    private final ImageRadioButton left = new ImageRadioButton("/imgs/left_detoure.png", 40);
+    private final ImageRadioButton teleporteur = new ImageRadioButton("/imgs/teleporteur_detoure.png", 40);
+    private final ImageRadioButton caseVide = new ImageRadioButton("/imgs/vide_detoure.png", 43);
 
     /** Défintion du plateau de jeu */
     JLabel[][] jboard;

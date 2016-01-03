@@ -80,8 +80,10 @@ public class Start {
         lesPlateaux = Sauvegarde.charger();
          
         //A PERMIS LA CREATION DU NIVEAU PAR DEFAUT
-        //Plateau plateauDefaut = new Plateau();
-        //addPlateau(plateauDefaut);
+         if(lesPlateaux.isEmpty()) {
+             Plateau plateauDefaut = new Plateau();
+             addPlateau(plateauDefaut);
+         }
         
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

@@ -32,22 +32,22 @@ public class FenetreEditer extends javax.swing.JFrame implements Observateur{
                   getResource("/background.png")).getImage();
     
     /** Définit tous les éléments présent sur le plateau */
-    private static final ImageIcon VIDE = new ImageIcon("./src/imgs/vide.png");
-    private static final ImageIcon IN = new ImageIcon("./src/imgs/in.png");
-    private static final ImageIcon OUT = new ImageIcon("./src/imgs/out.png");
-    private static final ImageIcon CHAT = new ImageIcon("./src/imgs/chat.png");
-    private static final ImageIcon SOURIS = new ImageIcon("./src/imgs/souris.png");
-    private static final ImageIcon TELPORTEUR = new ImageIcon("./src/imgs/teleporteur.png");
-    private static final ImageIcon MUR = new ImageIcon("./src/imgs/mur.png");
-    private static final ImageIcon ICON = new ImageIcon("./src/imgs/icon.png");
-    private static final ImageIcon ICONHOVER = new ImageIcon("./src/imgs/iconHover.png");
+    private final ImageIcon VIDE = new ImageIcon(getClass().getResource("/imgs/vide.png"));
+    private final ImageIcon IN = new ImageIcon(getClass().getResource("/imgs/in.png"));
+    private final ImageIcon OUT = new ImageIcon(getClass().getResource("/imgs/out.png"));
+    private final ImageIcon CHAT = new ImageIcon(getClass().getResource("/imgs/chat.png"));
+    private final ImageIcon SOURIS = new ImageIcon(getClass().getResource("/imgs/souris.png"));
+    private final ImageIcon TELPORTEUR = new ImageIcon(getClass().getResource("/imgs/teleporteur.png"));
+    private final ImageIcon MUR = new ImageIcon(getClass().getResource("/imgs/mur.png"));
+    private final ImageIcon ICON = new ImageIcon(getClass().getResource("/imgs/icon.png"));
+    private final ImageIcon ICONHOVER = new ImageIcon(getClass().getResource("/imgs/iconHover.png"));
     
     /** Radio Button pour les éléments à positionner */
-    private final ImageRadioButton in = new ImageRadioButton("../imgs/in_detoure.png", 40);
-    private final ImageRadioButton out = new ImageRadioButton("../imgs/out_detoure.png", 40);
-    private final ImageRadioButton cat = new ImageRadioButton("../imgs/chat_detoure.png", 40);
-    private final ImageRadioButton caseVide = new ImageRadioButton("../imgs/vide_detoure.png", 40);
-    private final ImageRadioButton wall = new ImageRadioButton("../imgs/mur_detoure.png", 40);
+    private final ImageRadioButton in = new ImageRadioButton("/imgs/in_detoure.png", 40);
+    private final ImageRadioButton out = new ImageRadioButton("/imgs/out_detoure.png", 40);
+    private final ImageRadioButton cat = new ImageRadioButton("/imgs/chat_detoure.png", 40);
+    private final ImageRadioButton caseVide = new ImageRadioButton("/imgs/vide_detoure.png", 40);
+    private final ImageRadioButton wall = new ImageRadioButton("/imgs/mur_detoure.png", 40);
         
     /** Défintion du plateau de jeu */
     private JLabel[][] jboard;
