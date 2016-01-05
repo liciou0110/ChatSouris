@@ -315,15 +315,20 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
                     nbLeft.setText("x " + unPlateau.getNbFlechesGauche());
                 } else if (teleporteur.isSelected()) {
                     if(nbTeleporteurPlateau == 0){
-                        JOptionPane.showMessageDialog(this,
+                        this.pause();
+                        int n = JOptionPane.showConfirmDialog(this,
                             "Pour que vos animaux puissent se téléporter "
                           + "il faut au minimum deux téléporteurs.",
                             "Jeu du Chat et de la Souris - Erreurs",
-                        JOptionPane.INFORMATION_MESSAGE);
+                          JOptionPane.DEFAULT_OPTION,
+                          JOptionPane.ERROR_MESSAGE);
+                        //Relance le timer après affiche du message
+                        if(n == JOptionPane.OK_OPTION){
+                            this.play();
+                        }
                     }
                     nbTele.setText("x " + unPlateau.getNbTeleporteurs());
                 }
-                
             }else if(jboard[x][y].getIcon() == HAUT || 
                      jboard[x][y].getIcon() == BAS ||
                      jboard[x][y].getIcon() == DROITE ||
@@ -339,27 +344,45 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
                 //Si on place une case vide sur un case autre qu'une case
                 //fleche teleporteur ou vide et sans animaux
                 if(caseVide.isSelected()){
-                    JOptionPane.showMessageDialog(this, 
+                    this.pause();
+                    int n = JOptionPane.showConfirmDialog(this, 
                         "Une case vide ne peut être placée que sur une "
                       + "flêche, un téléporteur ou une autre case vide.", 
                         "Jeu du Chat et de la Souris - Erreurs",
-                    JOptionPane.ERROR_MESSAGE);
+                       JOptionPane.DEFAULT_OPTION,
+                       JOptionPane.ERROR_MESSAGE);
+                    //Relance le timer après afficahge message
+                    if(n == JOptionPane.OK_OPTION){
+                        this.play();
+                    }
                 //Si on place un téléporteur sur un case autre 
                 //qu'une case vide et sans animaux
                 }else if(teleporteur.isSelected()){
-                    JOptionPane.showMessageDialog(this, 
+                    this.pause();
+                    int n = JOptionPane.showConfirmDialog(this, 
                         "Un téléporteur ne peut être placé que sur une "
                       + "case vide, une flêche ou un autre téléporteur.", 
                         "Jeu du Chat et de la Souris - Erreurs",
-                    JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.ERROR_MESSAGE);
+                    //Relance le timer après afficahge message
+                    if(n == JOptionPane.OK_OPTION){
+                        this.play();
+                    }
                 //Cas ou on place une flêche sur un case 
                 //autre qu'une case vide et sans animaux
                 }else{
-                    JOptionPane.showMessageDialog(this, 
+                    this.pause();
+                    int n = JOptionPane.showConfirmDialog(this, 
                         "Une flêche ne peut être placée que sur une case "
                       + "vide, un téléporteur ou une autre flêche.",
                         "Jeu du Chat et de la Souris - Erreurs",
-                    JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.ERROR_MESSAGE);
+                    //Relance le timer après afficahge message
+                    if(n == JOptionPane.OK_OPTION){
+                        this.play();
+                    }
                 }
             }
         }
@@ -597,15 +620,21 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
+    /**
+     * Permet de mettre le jeu sur pause
+     */
+    public void pause(){
         btnPlay.setEnabled(true);
         btnPause.setEnabled(false);
 
         //Stop le timer après click sur play
         frameChoixPlateau.getTimer().cancel();
-    }//GEN-LAST:event_btnPauseActionPerformed
-
-    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
+    }
+    
+    /**
+     * Permet de mettre le jeu sur play
+     */
+    public void play(){
         btnPlay.setEnabled(false);
         btnPause.setEnabled(true);
 
@@ -613,6 +642,14 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
         frameChoixPlateau.resetControl();
         frameChoixPlateau.setTimer(new Timer());
         debut(frameChoixPlateau.getControl(), frameChoixPlateau.getTimer());
+    }
+    
+    private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
+        this.pause();
+    }//GEN-LAST:event_btnPauseActionPerformed
+
+    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
+        this.play();
     }//GEN-LAST:event_btnPlayActionPerformed
 
     public FenetreChoixPlateau getFrameChoixPlateau() {
