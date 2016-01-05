@@ -321,7 +321,7 @@ public class FenetreJeu extends javax.swing.JFrame implements Observateur {
                           + "il faut au minimum deux téléporteurs.",
                             "Jeu du Chat et de la Souris - Erreurs",
                           JOptionPane.DEFAULT_OPTION,
-                          JOptionPane.ERROR_MESSAGE);
+                          JOptionPane.INFORMATION_MESSAGE);
                         //Relance le timer après affiche du message
                         if(n == JOptionPane.OK_OPTION){
                             this.play();
