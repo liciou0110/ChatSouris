@@ -29,10 +29,9 @@ import modele.*;
 public class FenetreJeu extends javax.swing.JFrame implements Observateur {
 
     /** Définition de l'image de fond */
-    private final Image mainBackgroundImage = new ImageIcon(getClass().
-            getResource("/background.png")).getImage();
+    private final Image mainBackgroundImage = new ImageIcon(getClass().getResource("/background.png")).getImage();
 
-    /** Modèle correspondant à l'état du palteau */
+    /** Modèle correspondant à l'état du plateau */
     private final Plateau unPlateau;
 
     /** Définit tous les éléments présent sur le plateau */
